@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/thirdpartylib/bootstrap-4.3.1/css/bootstrap.min.css">
+   <!-- Font Awesome CSS -->
+   <link rel="stylesheet" href="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/thirdpartylib/fontawesome-free-5.9.0-web/css/all.min.css">
+   <!-- Template CSS -->
+   <link rel="stylesheet" href="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/css/lsl_styles.css">
+
+   <!-- Fonts -->
+
+
+<!-- PDF Converter Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+<script>
+window.onload = function () { 
+document.getElementById("download")
+        .addEventListener("click", () => {
+            const doc = this.document.getElementById("print");
+            console.log(doc);
+            console.log(window);
+            var opt = {
+                margin: .5,
+                filename: 'syllabus.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 3 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all'] }
+            };
+            html2pdf().from(doc).set(opt).save();
+        });
+}
+</script>
+<title>Content</title>
+</head>
+
+<body>
+<div id="print" class="col-sm-10 offset-sm-1">
+<p><button class="btn" id="download">Download</button></p>
+<h1>Syllabus</h1>
+<h2>Title of the course</h2>
+<p>ABCD-XY.1234 | 1.5 credits</p>
+<h3>Instructor</h3>
+<p>Professor name<br />Professor title<br />email@stern.nyu.edu | ###.###.#### | Room#<br />Office Hours: Info<br />Teaching Fellow: Name | email@stern.nyu.edu</p>
+<h3>Course description</h3>
+<p>In this course, students will learn how to program in R and how to use R for effective data analysis and visualization. Turn raw data into understanding, insight, and knowledge (Wickham &amp; Grolemund, 2017, p. ix) using R to import, prepare, understand, and communicate your data findings. The course begins with developing a basic understanding of the R working environment. Next, students will be introduced the necessary arithmetic and logical operators, salient functions for manipulating data, and getting help using R. Next, the common data structures, variables, and data types used in R will be demonstrated and applied. Students will write R scripts and build R markdown documents to share their code others. They will utilize the various packages available in R for visualization, reporting, data manipulation, and statistical analysis. Students import data sets, transform and manipulate those datasets for various analytical purposes. Students will learn how to create control structures, such as loops and conditional statements to traverse, sort, merge, and evaluate data. Finally, students create interactive business applications that allow for data querying and data exploration. This course is designed for those who have no experience in R or programming.</p>
+<h3>Learning outcomes</h3>
+<p>By the end of the course you will be able to:</p>
+<ul>
+<li>Understand the fundamental syntax of R through readings, practice exercises, demonstrations, and writing R code.</li>
+<li>Apply critical programming language concepts such as data types, iteration, control structures, functions, and boolean operators by writing R programs and through examples</li>
+<li>Import a variety of data formats into R using RStudio</li>
+<li>Prepare or tidy data for in preparation for analysis</li>
+<li>Analyze a data set in R and present findings using the appropriate R packages<br />Visualize data attributes using ggplot2 and other R packages.</li>
+</ul>
+<h3>Course format and meetings</h3>
+<p>This is a 3-week online course.&nbsp; It is largely self-paced during the week, but you are required to complete and submit assignments online by the due dates indicated in the course outline.</p>
+<h5>Online meetups</h5>
+<p>There will be three (6)90 minute live online class sessions as indicated in the course outline.&nbsp; You are expected to attend, but if you cannot, you should review the video recording as soon as possible after it is posted.&nbsp; You are responsible for any content covered during the online meetups.&nbsp; &nbsp;For each meetup, there are two sessions.&nbsp; You should attend the session indicated by your section/block.&nbsp; See the course outline for dates and deliverables associated with each meetup.</p>
+<h3>Requirements &amp; grading</h3>
+<h5>Grade breakdown</h5>
+<div class="table-responsive">
+<table class="table " width="650" height="297" style="height: 471px; width: 648px; border-style: hidden;">
+<tbody>
+<tr>
+<td style="width: 504.172px;">
+<p><strong>Assignments</strong></p>
+<p>Item list and/or description can go here.</p>
+</td>
+<td style="width: 143.828px;">
+<p><strong>30%</strong></p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td style="width: 504.172px;">
+<p><strong>Quizzes</strong></p>
+<p>Item list and/or description can go here.</p>
+</td>
+<td style="width: 143.828px;">
+<p><strong>XX%</strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 504.172px;">
+<p><strong>Meetup participation&nbsp;</strong></p>
+<p>If you cannot attend a meetup, you are required to watch the recording and...</p>
+</td>
+<td style="width: 143.828px;">
+<p><strong>XX%</strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 504.172px;">
+<p><strong>Total&nbsp;</strong></p>
+</td>
+<td style="width: 143.828px;">
+<p><strong>100%</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5>Incomplete and late assignments</h5>
+<p>Late assignments will not be accepted after (the due date/another date.&nbsp; Assignments submitted after the due date will receive a xxxx penalty). The only exceptions are for serious illness, family emergency, or religious or civic obligation. If you face one of these situations, let us know as soon as possible. Please do not ask for exceptions for other reasons.</p>
+<h5>Grade scheme</h5>
+<p>Please note: specific grading policies dictating how percentages translate into final letter grades may vary by instructor and course. For questions about your final grade, please contact your instructor directly.</p>
+<h3>Resources</h3>
+<h5>Tutorials, video demonstrations, and exercises</h5>
+<ul>
+<li>Sosulski, K. (2019). R Fundamentals. Bookdown: New York. Available at: <a href="http://becomingvisual.com/rfundamentals">http://becomingvisual.com/rfundamentals</a> (FREE)</li>
+<li>Wickham, H. &amp; Grolemund, G. (2018). for Data Science. O&rsquo;Reilly: New York. Available for free at <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a> (FREE)</li>
+</ul>
+<h5>Required software</h5>
+<ul>
+<li>R: <a href="http://www.r-project.org/">http://www.r-project.org/</a> (FREE)</li>
+<li>RStudio (additional libraries required): <a href="http://www.rstudio.com/">http://www.rstudio.com/</a> (FREE)</li>
+</ul>
+<h5>Learning resources</h5>
+<ul>
+<li>R Project: <a href="http://www.r-project.org/">http://www.r-project.org/</a></li>
+<li>RStudio (additional libraries required): <a href="http://www.rstudio.com">http://www.rstudio.com</a></li>
+<li>Quick-R: <a href="http://www.statmethods.net/">http://www.statmethods.net/</a></li>
+<li>Google&rsquo;s R Style Guide: <a href="http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml</a></li>
+</ul>
+<h3>Communication strategy</h3>
+<p>There are several resources and communication channels available to your to support you in your learning and to answer your questions.</p>
+<ul>
+<li><strong>Instructor:</strong> <span style="color: #993300;">What questions should go to the instructor?</span></li>
+<li><strong>Instructor office hours:</strong> <span style="color: #993300;">Office hours instructions</span></li>
+<li><strong>Teaching fellow:</strong> <span style="color: #993300;">Instructions for what to ask fellow</span></li>
+<li><strong>Q &amp; A discussion form:</strong> <span style="color: #993300;">How will forums be used in the course?</span></li>
+<li><strong>MSQM email:</strong> Contact the MSQM program services team (MSQMAdvising@stern.nyu.edu) for questions related to the MSQM program deadlines, schedule of courses, and other general program inquiries</li>
+</ul>
+<h3>Conduct</h3>
+<h5>Academic integrity</h5>
+<p>Academic integrity is central to our mission as an educational institution. By signing the NYU Stern Code of Conduct when you began the program you pledged to exercise integrity in all aspects of your academic work. That includes a) not engaging in any method or means that gives you or others an unfair advantage and b) clearly acknowledging the work and efforts of others when submitting written work as your own. Behavior inconsistent with the Code of Conduct will be referred to the NYU Stern Judiciary Committee.</p>
+<h5>Equity &amp; inclusion</h5>
+<p>New York University is committed to equal treatment and opportunity for its students and to maintaining an environment that is free of bias, prejudice, discrimination, and harassment (details on policy and reporting). Taking this further, a goal of this program is to support and cultivate diversity of thought, perspectives, and experiences. The intent is to present materials and activities that will challenge your current perspectives with a goal of understanding how others might see situations differently. We expect everyone in the program and this course to be committed to making this an inclusive learning environment for all.</p>
+<h3>Accessibility</h3>
+<p>Academic accommodations are available for students with disabilities. Please contact the <a href="https://www.nyu.edu/about/leadership-university-administration/office-of-the-president/office-of-the-provost/university-life/office-of-studentaffairs/student-health-center/moses-center-for-student-accessibility.html" target="_blank" rel="noopener">Moses Center for Students with Disabilities</a> (212) 998-4980 or <a href="mailto:mosescsa@nyu.edu" target="_blank" rel="noopener">mosescsd@nyu.edu</a> for further information. Students who are requesting academic accommodations are advised to reach out to the Moses Center as early as possible in the semester for assistance.</p>
+<p>NYU is committed to providing equal educational opportunity and participation for students with disabilities. If you will require academic accommodation of any kind during this course, you must notify me at the beginning of the course and provide a letter from the Moses Center for Student Accessibility verifying your registration and outlining the accommodations they recommend. If you will need exam accommodations, you must submit a completed Exam Accommodations Form to the Moses Center at least one week prior to the scheduled exam time to be guaranteed accommodation.</p>
+<h3>Wellness</h3>
+<p>School can be stressful. If you would like help, we encourage you to reach out to the NYU Wellness Exchange for mental health support. You can reach them 24/7 at 212-443-9999, or via their app. There are also drop-in hours and appointments. Learn more on <a href="https://www.nyu.edu/students/health-and-wellness/services/counseling-services.html" target="_blank" rel="noopener">NYU&rsquo;s Counseling &amp; Wellness Services</a> website.</p>
+</div>
+<div class="col-12"><footer></footer></div>
+<!-- scripts -->
+<p>
+<script src="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/thirdpartylib/jquery/jquery-3.3.1.slim.min.js"></script>
+<script src="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/thirdpartylib/popper-js/popper.min.js"></script>
+<script src="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/thirdpartylib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+</p>
+<!-- Template JavaScript -->
+<p>
+<script src="/shared/HTML-Template-Library/HTML-Templates-Stern/pages/../_assets/js/scripts.min.js"></script>
+</p>
+</body>
+
+</html>
