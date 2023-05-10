@@ -7,7 +7,7 @@ let feedback_text = '';
 let src = '';
 let selectedTag;
 let selectedTagText;
-const formAction = 'https://script.google.com/macros/s/AKfycbzDYhT9eNJLXQlDlVZHwegdIuhoOWxRxo8iu_VjLp7RqLY9gim7PKQKk9kUH1W2bowj/exec';
+const formAction = 'https://script.google.com/macros/s/AKfycbwD5KOI82xbHICcU8E_tWWCjNNCQtrrqJaDSMddhGUT3NxEaIdWqPP49gp0UnG8PwDN/exec';
 
 const titleText = "Tell us about your rating";
 const positivePromptText = "What made this a good video?"; 
@@ -75,6 +75,7 @@ modal.appendChild(modalContent);
 //form
 const form = document.createElement('form');
 form.action = formAction;
+form.method = "POST"
 modalContent.appendChild(form);
 form.innerHTML = `<span class="modal-title">${titleText}</span>`;
 //form thumb buttons
