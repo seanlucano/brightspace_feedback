@@ -542,6 +542,12 @@ button:focus:not(:focus-visible),
   /* color: var(--course-color); */
 }
 
+.tag-buttons :disabled,
+.tag-buttons :disabled:hover {
+  color:rgba(86, 90, 92, 0.9);
+  background-color: white;
+}
+
 .variable-text {
   font-weight: bold;
 }

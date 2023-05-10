@@ -15,7 +15,7 @@ const negativePromptText = "What could have made this video better?";
 const altButtonText = "Submit without comment";
 const primaryButtonText = "Submit";
 const placeholderText = "Your feedback will help us improve this video."
-const feedbackSentText = "Thank you for your feedback!";
+const feedbackSentText = "Thank you for your feedback.";
 
 // add tags to all videos
 const videos = document.querySelectorAll('.video-wrapper');
@@ -262,7 +262,7 @@ function submitForm(event) {
 
     const tagButtons = selectedTag.children;
     for (i=0; i<tagButtons.length; i++) {
-        tagButtons[i].setAttribute("disabled", "true");
+        tagButtons[i].disabled = true;
     }
     
     selectedTagText.innerHTML = feedbackSentText;
