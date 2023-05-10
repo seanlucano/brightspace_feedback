@@ -6,11 +6,12 @@ let feedback_type = '';
 let feedback_text = '';
 let src = '';
 let selectedTag;
+let selectedTagText;
 const formAction = 'https://script.google.com/macros/s/AKfycbzDYhT9eNJLXQlDlVZHwegdIuhoOWxRxo8iu_VjLp7RqLY9gim7PKQKk9kUH1W2bowj/exec';
 
 const titleText = "Tell us about your rating";
-const positivePromptText = "What made this a great learning experience?"; 
-const negativePromptText = "What could have made this a better learning experience?";
+const positivePromptText = "What made this a good video?"; 
+const negativePromptText = "What could have made this video better?";
 const altButtonText = "Submit without comment";
 const primaryButtonText = "Submit";
 const placeholderText = "Your feedback will help us improve this video."
@@ -39,11 +40,10 @@ videos.forEach((node) => {
     thumbDown.classList.add('thumb','far', 'fa-thumbs-down');
     thumbDown.setAttribute('value','negative');
     //create tag text
-    const tagTextSpan = document.createElement('span');
-    const tagText = document.createTextNode("")
-    tag.appendChild(tagTextSpan);
-    tagTextSpan.classList.add("tag-text");
-    tagTextSpan.appendChild(tagText);
+    const tagText = document.createElement('span');
+    tag.appendChild(tagText);
+    tagText.classList.add("tag-text");
+    tagText.innerHTML = "";
     //add event listeners to thumb buttons
     const thumbButtons = document.querySelectorAll('.tag-buttons button');
     thumbButtons.forEach(node => node.addEventListener("click", thumbTagSelect));
@@ -141,7 +141,8 @@ function thumbTagSelect(event) {
     const parent = event.target.parentElement;
     const buttons = parent.children;
     selectedTag = event.target.parentElement;
-    console.log(selectedTag);
+    selectedTagText = selectedTag.nextSibling;
+    
     for (i=0; i<buttons.length; i++ ) {
         buttons[i].classList.remove('selected');
         buttons[i].classList.replace('fas','far');
@@ -256,35 +257,40 @@ function toggleModal() {
 
 function submitForm(event) {
     event.preventDefault();
-    // console.log(event);
+     
+    feedback_text = textArea.value;
+
+    const tagButtons = selectedTag.children;
+    for (i=0; i<tagButtons.length; i++) {
+        tagButtons[i].setAttribute("disabled", "true");
+    }
     
-    // feedbackSentMessage();
-    // feedback_text = feedbackText.value;
-    // feedbackButtons.forEach(button => button.setAttribute("disabled", " "));
+    selectedTagText.innerHTML = feedbackSentText;
          
-    // // prepare form data for post 
-    // const data = new FormData(form);
-    // let date = new Date()
-    // const dd = String(date.getDate()).padStart(2, '0');
-    // const mm = String(date.getMonth() + 1).padStart(2, '0');
-    // const yyyy = date.getFullYear();
-    // date = mm + '/' + dd + '/' + yyyy;
-    // const action = e.target.action;
-    // const url = window.location.href;
+    // prepare form data for post 
     
-    // data.append("url", url);
-    // data.append("date", date);
-    // data.append("feedback_type", feedback_type);
-    // data.append("feedback_text", feedback_text);
+    const data = new FormData(form);
+    let date = new Date()
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
+    date = mm + '/' + dd + '/' + yyyy;
+    const action = event.target.action;
+    const url = window.location.href;
     
-    // fetch(action, {
-    //   method: 'POST',
-    //   body: data,
-    // })
-    // .then(() => {
-    // feedback_type = "";
+    data.append("url", url);
+    data.append("src", src);
+    data.append("date", date);
+    data.append("feedback_type", feedback_type);
+    data.append("feedback_text", feedback_text);
     
-    // })
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+    feedback_type = "";
+    })
 }
 
 
