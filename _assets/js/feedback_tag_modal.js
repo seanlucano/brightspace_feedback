@@ -260,38 +260,42 @@ function submitForm(event) {
     event.preventDefault();
      
     feedback_text = textArea.value;
-
-    const tagButtons = selectedTag.children;
-    for (i=0; i<tagButtons.length; i++) {
-        tagButtons[i].disabled = true;
-    }
-    
-    selectedTagText.innerHTML = feedbackSentText;
          
     // prepare form data for post 
-    
     const data = new FormData(form);
+    
+    
     let date = new Date()
     const dd = String(date.getDate()).padStart(2, '0');
     const mm = String(date.getMonth() + 1).padStart(2, '0');
     const yyyy = date.getFullYear();
     date = mm + '/' + dd + '/' + yyyy;
-    const action = event.target.action;
     const url = window.location.href;
     
+    //add data to the data object
     data.append("url", url);
     data.append("src", src);
     data.append("date", date);
     data.append("feedback_type", feedback_type);
     data.append("feedback_text", feedback_text);
     
-    fetch(action, {
-      method: 'POST',
+    fetch(formAction, {
+      method: 'post',
       body: data,
     })
-    .then(() => {
+    .then((response) => console.log(response))
+    .catch(error => console.error(error))
+
+    toggleModal();
+    textArea.value = "";
     feedback_type = "";
-    })
+    //disable the tag buttons for the selected video
+    const tagButtons = selectedTag.children;
+    for (i=0; i<tagButtons.length; i++) {
+        tagButtons[i].disabled = true;
+    }
+    //show user feedback sent text for selected tag
+    selectedTagText.innerHTML = feedbackSentText;
 }
 
 
