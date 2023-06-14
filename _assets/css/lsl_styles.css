@@ -359,6 +359,7 @@ p.rating-text {
   white-space: nowrap;
   display:flex;
   align-items: center;
+  gap: 25px;
   
   /* transition: width 1s, height 1s; */
 }
@@ -375,8 +376,9 @@ p.rating-text {
 } */
 
 .tag-text {
-  margin-left: 10px;
+
 }
+
 
 /* .tag-text::before {
   display: inline-block;
@@ -524,7 +526,7 @@ button:focus:not(:focus-visible),
 .tag-buttons button,
 .form-buttons button {
   font-size: 22px;
-  background-color: #dee2e6;
+  
   color: #494c4e;
   border: none;
   text-align: center;
@@ -535,9 +537,18 @@ button:focus:not(:focus-visible),
   
 }
 
+.tag-buttons button {
+  background-color: #dee2e6;
+}
+
+.form-buttons button {
+  background-color: white;
+}
+
+
 .tag-buttons button:hover,
-.form-butssons button:hover {
-  background-color: rgba(211, 211, 211, 0.26);
+.form-buttons button:hover {
+  background-color: darkgrey;
   
 }
 
@@ -549,7 +560,7 @@ button:focus:not(:focus-visible),
 .tag-buttons :disabled,
 .tag-buttons :disabled:hover {
   color:rgba(86, 90, 92, 0.9);
-  background-color: white;
+  background-color: #dee2e6;
 }
 
 .variable-text {
