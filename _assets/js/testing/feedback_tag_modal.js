@@ -1,10 +1,5 @@
-//ORIGINAL D2L Scripts
-$.each($(".component-sample"),(function(){var t=$(this).html(),e={"<":"&lt;",">":"&gt;","  ":""};t=t.replace(/<|>|  /gi,(function(t){return e[t]})),$(this).append('<pre class="code-sample copy-this card bg-light"><code>'+t+'</code></pre><p><button class="btn copy-btn" data-toggle="tooltip" data-placement="top" title="Copy Code To Clipboard">Copy Code</button></p>')})),$(".copy-btn").on("click",(function(){var t=$(this).parent().prev(".copy-this"),e=String(t[0].textContent),n=document.createElement("textarea");n.value=e,document.body.appendChild(n),n.select(),document.execCommand("copy"),document.body.removeChild(n),$(this).html("Code Copied")})),$.each($(".accordion"),(function(t){$(this).attr("id","accordion_"+parseInt(t+1))})),$.each($(".accordion > .card"),(function(t,e){var n=t+1;$(e).children(".card-header").attr("id","heading_acc_"+n),$(e).find(".card-header > .card-title").wrapInner('<button  class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="false"></button>'),$(e).find(".card-header > .card-title > button").attr({"data-target":"#collapse_acc_"+n,"aria-controls":"collapse_acc_"+n}),$(e).children(".collapse").attr({id:"collapse_acc_"+n,"aria-labelledby":"heading_acc_"+n})}));for(var bgImgWrapper=document.getElementsByClassName("bg-img-wrapper"),bgImgIndex=0;bgImgIndex<bgImgWrapper.length;bgImgIndex++){var bgImgWrapperId="bg-img-wrapper-"+parseInt(bgImgIndex);document.querySelectorAll(".bg-img-wrapper")[bgImgIndex].setAttribute("id",bgImgWrapperId);var bgImg=document.getElementById(bgImgWrapperId).getElementsByTagName("img")[0].src;document.querySelectorAll(".bg-img-wrapper")[bgImgIndex].setAttribute("style","background-image: url("+bgImg+");")}for(var links=document.querySelectorAll("a"),downloadIndex=0,newWindowIndex=0,linkIndex=0;linkIndex<links.length;linkIndex++){var srTxtWrapper=document.createElement("span");if(srTxtWrapper.classList.add("sr-only"),links[linkIndex].classList.contains("download")){links[linkIndex].setAttribute("download",""),links[linkIndex].setAttribute("id","download-file-"+downloadIndex),links[linkIndex].setAttribute("title","download file"),links[linkIndex].setAttribute("data-toggle","tooltip");var srTxt=document.createTextNode("(this link downloads a file)");srTxtWrapper.appendChild(srTxt),links[linkIndex].appendChild(srTxtWrapper),downloadIndex++}else if(links[linkIndex].classList.contains("new-window")){links[linkIndex].setAttribute("target","_blank"),links[linkIndex].setAttribute("id","new-window"+newWindowIndex),links[linkIndex].setAttribute("data-original-title","opens in new window/tab"),links[linkIndex].setAttribute("data-toggle","tooltip");srTxt=document.createTextNode("(this link opens in a new window/tab)");srTxtWrapper.appendChild(srTxt),links[linkIndex].appendChild(srTxtWrapper)}}$.each($(".list-group"),(function(t){$(this).attr("id","list-tab_"+parseInt(t+1))})),$.each($(".list-group > .list-group-item"),(function(t,e){var n=t+1;$(e).attr({id:"list-"+n+"-list",href:"#list-"+n,"aria-controls":"list-"+n})})),$.each($(".tab-content"),(function(t){$(this).attr("id","nav-tabContent_"+parseInt(t+1))})),$.each($(".tab-content > .tab-pane"),(function(t,e){var n=t+1;$(e).attr({id:"list-"+n,"aria-labelledby":"list-"+n+"-list"})}));
 
-//LSL ADDITIONAL SCRIPTS
-console.log("connected!");
-
-// FEEDBACK TAGS WITH MODAL
+// FEEDBACK TAGS
 
 //global variables
 let feedback_type = '';
@@ -101,12 +96,15 @@ thumbDown.addEventListener('click', thumbFormSelect);
 const submissionArea = document.createElement('div');
 submissionArea.classList.add('submission-area');
 form.appendChild(submissionArea);
+
 // prompt text in submission area
 const prompt = document.createElement('label');
 prompt.classList.add('prompt');
 prompt.setAttribute('for','user-feedback-text')
 updatePrompt();
+
 submissionArea.appendChild(prompt);
+
 // text area in submission area
 const textArea = document.createElement('textarea');
 textArea.classList.add('feedback-text');
@@ -117,17 +115,27 @@ textArea.setAttribute('style','display: block;');
 textArea.setAttribute('placeholder','Your feedback will be anonymous');
 submissionArea.appendChild(textArea);
 textArea.addEventListener('keyup', buttonEnabler);
-// submit button
+
+// submission buttons
+
+// const altButton = document.createElement('button');
+// altButton.classList.add('btn', 'secondary');
+// altButton.setAttribute('type', 'submit');
+// altButton.innerHTML = 'Submit without comment';
+// submissionArea.appendChild(altButton);
+// altButton.addEventListener('click', submitForm);
+
 const submitButton = document.createElement('button');
 submitButton.classList.add('btn');
 submitButton.setAttribute('type', 'submit');
 submitButton.classList.add('secondary');
+//submitButton.disabled = true;
 submitButton.innerHTML = altButtonText;
 submissionArea.appendChild(submitButton);
 submitButton.addEventListener('click', submitForm);
 
 
-// event handlers
+// Event handling
 
 function thumbTagSelect(event) {
     
@@ -210,6 +218,24 @@ function updatePrompt() {
     
 } 
     
+// function updateFormThumbs() {
+//     thumbUp.classList.remove('selected');
+//     thumbUp.classList.replace('fas', 'far');
+//     thumbDown.classList.remove('selected');
+//     thumbUp.classList.replace('fas', 'far');
+    
+    
+    
+//     if (feedback_type === 'positive') {
+//         thumbUp.classList.add('selected');
+//         thumbUp.classList.replace('far', 'fas');
+//     } else if (feedback_type === 'negative') {
+//         thumbDown.classList.add('selected');
+//         thumbDown.classList.replace('far', 'fas');
+//     } else {
+//         console.log("didnt update the buttons");
+//     }
+// }
 
 function buttonEnabler() {
    if (textArea.value) {
@@ -226,6 +252,9 @@ function toggleModal() {
     modal.classList.toggle('closed');
     overlay.classList.toggle('closed');
 }
+
+
+
 
 
 function submitForm(event) {
@@ -269,3 +298,61 @@ function submitForm(event) {
     //show user feedback sent text for selected tag
     selectedTagText.innerHTML = feedbackSentText;
 }
+
+
+
+
+
+
+{/* <form id="feedback-form" method="POST" action="https://script.google.com/macros/s/AKfycbzDYhT9eNJLXQlDlVZHwegdIuhoOWxRxo8iu_VjLp7RqLY9gim7PKQKk9kUH1W2bowj/exec">
+                     
+    <div id="selection-feedback">
+    <P>Please take a moment to rate this lesson. Your feedback will be <strong>anonymous</strong>.</p>
+    
+    <ul class="ratings">
+        <li>
+            <button class="btn feedback-btn" value="Very bad" type="button">
+                <i aria-hidden="true" class="fas fa-tired fa-lg"></i>
+            </button>
+            <p class="rating-text">Very bad</p>
+        </li>
+
+        <li>
+            <button class="btn feedback-btn" value="Bad" type="button">
+                <i class="fas fa-frown fa-lg" ></i> 
+            </button> 
+            <p class="rating-text">Bad</p>
+        </li>
+
+        <li>
+            <button class="btn feedback-btn" value="Okay" type="button">
+                <i aria-hidden="true" class="fas fa-meh fa-lg" ></i>
+            </button>
+            <p class="rating-text">Okay</p>
+        </li>
+            
+        <li>
+            <button class="btn feedback-btn" value="Good" type="button">
+                <i class="fas fa-smile fa-lg" ></i> 
+            </button> 
+            <p class="rating-text">Good</p>
+        </li>
+
+        <li>
+            <button class="btn feedback-btn" value="Very good" type="button">
+                <i class="fas fa-laugh-beam fa-lg" ></i> 
+            </button>
+            <p class="rating-text">Very good</p>
+        </li>
+
+    </ul>
+    
+    </div>
+    
+    <div class="hidden" id="submission-area">
+    <p>What made you choose <span class="variable-text">your selection</span>?</p>
+    <textarea style="display: block; width: 100%;" name="feedback-text" id="feedback-text" type="text"></textarea>
+    <button class="btn" type="submit">Submit</button>
+    </div>
+    
+</form> */}
