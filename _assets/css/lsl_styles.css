@@ -356,7 +356,6 @@ p.rating-text {
 .feedback-tag {
   margin-top: calc(-2rem - 1px);
   margin-bottom: 1rem;
-  /* border: 1px solid grey; */
   white-space: nowrap;
   display:flex;
   align-items: center;
@@ -367,6 +366,7 @@ p.rating-text {
 .selectionArea {
   display: flex;
   align-items: center;
+
 }
 
 /* .feedback-tag.wide {
@@ -511,16 +511,20 @@ button:focus:not(:focus-visible),
 
 .tag-buttons {
   display:flex;
+  background-color: #dee2e6;
+  border-radius: 0 0 5px 5px;
+  padding: 5px;
 }
 
 .form-buttons {
   display: inline-block;
+
 }
 
 .tag-buttons button,
 .form-buttons button {
   font-size: 22px;
-  background-color: white;
+  background-color: #dee2e6;
   color: #494c4e;
   border: none;
   text-align: center;
@@ -533,7 +537,7 @@ button:focus:not(:focus-visible),
 
 .tag-buttons button:hover,
 .form-butssons button:hover {
-  background-color: lightgrey;
+  background-color: rgba(211, 211, 211, 0.26);
   
 }
 

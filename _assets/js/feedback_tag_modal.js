@@ -10,7 +10,7 @@ let selectedTagText;
 const formAction = 'https://script.google.com/macros/s/AKfycbwD5KOI82xbHICcU8E_tWWCjNNCQtrrqJaDSMddhGUT3NxEaIdWqPP49gp0UnG8PwDN/exec';
 
 const titleText = "Tell us about your rating";
-const positivePromptText = "What made this a good video?"; 
+const positivePromptText = "What did you like about this video?"; 
 const negativePromptText = "What could have made this video better?";
 const altButtonText = "Submit without comment";
 const primaryButtonText = "Submit";
@@ -112,6 +112,7 @@ textArea.setAttribute('name','feedback-text');
 textArea.setAttribute('id','user-feedback-text');
 textArea.setAttribute('type','text');
 textArea.setAttribute('style','display: block;');
+textArea.setAttribute('placeholder','Your feedback will be anonymous');
 submissionArea.appendChild(textArea);
 textArea.addEventListener('keyup', buttonEnabler);
 
